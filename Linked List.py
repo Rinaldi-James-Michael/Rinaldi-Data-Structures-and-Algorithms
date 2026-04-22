@@ -36,7 +36,8 @@ class LinkedList:
             temp = temp.next
 
     ###############################
-    #Add value onto the list
+    #Append/add value onto the list's 
+    # last position
     ###############################
     def append(self,value):
         new_node = Node(value)
@@ -58,16 +59,20 @@ class LinkedList:
         if self.length == 0:
             return None
         
+        #Temporarily assign head value to temp and pre
+        # Temp is the last value to be popped, 
+        # and pre is the value right before it
         temp = self.head
         pre = self.head
 
-        #traverse through list to reach the last value
+        #Traverse through list to reach the last value
+        # as long as there is a value after temp
         while(temp.next):
             pre = temp
             temp = temp.next
 
-        #Point to the second last value and remove pointer to
-        #the next value
+        #Point to the second last value and remove
+        #the pointer that points to the next value
         self.tail = pre
         self.tail.next = None
         self.length -= 1
@@ -239,28 +244,28 @@ class LinkedList:
 
 
 
-###############################################
-###############################################
-###############################################
+# ###############################################
+# ###############################################
+# ###############################################
 
-###############################
-#Rever a Linked list testing
-###############################
-my_linked_list = LinkedList(1)
-my_linked_list.append(2)
-my_linked_list.append(3)
-my_linked_list.append(4)
+# ###############################
+# #Rever a Linked list testing
+# ###############################
+# my_linked_list = LinkedList(1)
+# my_linked_list.append(2)
+# my_linked_list.append(3)
+# my_linked_list.append(4)
 
-my_linked_list.print_list()
+# my_linked_list.print_list()
 
-my_linked_list.reverse()
-print("\n")
-my_linked_list.print_list()
+# my_linked_list.reverse()
+# print("\n")
+# my_linked_list.print_list()
 
 
-###############################
-#Remove in the middle of list testing
-###############################
+# ###############################
+# #Remove in the middle of list testing
+# ###############################
 # my_linked_list = LinkedList(11)
 
 # my_linked_list.append(3)
@@ -275,9 +280,9 @@ my_linked_list.print_list()
 # my_linked_list.print_list()
 
 
-###############################
-#Insert in the middle of list testing
-###############################
+# ###############################
+# #Insert in the middle of list testing
+# ###############################
 # my_linked_list = LinkedList(0)
 # my_linked_list.append(2)
 # my_linked_list.print_list()
@@ -288,9 +293,9 @@ my_linked_list.print_list()
 # my_linked_list.print_list()
 
 
-###############################
-#Set testing
-###############################
+# ###############################
+# #Set testing
+# ###############################
 # my_linked_list = LinkedList(11)
 # my_linked_list.append(3)
 # my_linked_list.append(23)
@@ -307,9 +312,9 @@ my_linked_list.print_list()
 # my_linked_list.print_list()
 
 
-###############################
-#Get testing
-###############################
+# ###############################
+# #Get testing
+# ###############################
 # my_linked_list = LinkedList(0)
 # my_linked_list.append(1)
 # my_linked_list.append(2)
@@ -319,9 +324,9 @@ my_linked_list.print_list()
 # print(my_linked_list.get(2))
 
 
-###############################
-#Pop first testing
-###############################
+# ###############################
+# #Pop first testing
+# ###############################
 # my_linked_list = LinkedList(1)
 # my_linked_list.append(2)
 
@@ -333,9 +338,9 @@ my_linked_list.print_list()
 # my_linked_list.print_list()
 
 
-###############################
-#Prepend testing
-###############################
+# ###############################
+# #Prepend testing
+# ###############################
 # my_linked_list = LinkedList(4)
 # my_linked_list.append(5)
 
@@ -351,14 +356,14 @@ my_linked_list.print_list()
 
 
 
-###############################
-#Print, Pop testing
-###############################
+# ###############################
+# #Print, Pop testing
+# ###############################
 
 # print("List is now:")
 # my_linked_list.print_list()
 # print("\n")
-
+  
 # #(2) Items - Returns 2 Node
 # my_linked_list.pop()
 # print("Popped and List is now:")

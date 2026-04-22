@@ -15,7 +15,7 @@ def twoSum(nums: list[int], target: int) -> list[int]:
         #..value in the list
         diff = target - n
 
-        #Check if the difference is already in the Map we createdo
+        #Check if the difference is already in the Map we created
         #Map will be empty in the first iteration
         #If it matches, return the positions of both values
         if diff in prevMap:
