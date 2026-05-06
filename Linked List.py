@@ -179,34 +179,34 @@ class LinkedList:
     #Remove value from particular index
     # including (Pop and Pop first)
     ##################################################    
-        def remove(self, index):
-            if index < 0 or index >= self.length:
-                #returns None because it is the 
-                # oppposite of returning a Node
-                return None
-            
-            #if index is first item, pop first
-            if index == 0:
-                return self.pop_first()
-            
-            #if index is last value, pop
-            if index == self.length-1:
-                return self.pop()
-            
-            #value preceding what needs to be removed
-            prev = self.get(index-1)
+    def remove(self, index):
+        if index < 0 or index >= self.length:
+            #returns None because it is the 
+            # oppposite of returning a Node
+            return None
+        
+        #if index is first item, pop first
+        if index == 0:
+            return self.pop_first()
+        
+        #if index is last value, pop
+        if index == self.length-1:
+            return self.pop()
+        
+        #value preceding what needs to be removed
+        prev = self.get(index-1)
 
-            #Temp is the value you want to remove
-            temp = prev.next
+        #Temp is the value you want to remove
+        temp = prev.next
 
-            #Previous value should now point to the
-            # node after the removed node
-            prev.next = temp.next
-            temp.next = None
+        #Previous value should now point to the
+        # node after the removed node
+        prev.next = temp.next
+        temp.next = None
 
-            #Updated length of the list
-            self.length-= 1
-            return temp
+        #Updated length of the list
+        self.length-= 1
+        return temp
 
     ##################################################
     #Reverse a linked list
@@ -243,62 +243,62 @@ class LinkedList:
             #Current/temp node is now the following/after node (for the next loop)
             temp = after       
 
-        ##################################################
-        #Find the middle node
-        ################################################## 
-        def find_middle_node(self):
-            #Move slow node, one node at a time
-            slow = self.head
+    ##################################################
+    #Find the middle node
+    ################################################## 
+    def find_middle_node(self):
+        #Move slow node, one node at a time
+        slow = self.head
 
-            #Move fast node, two nodes at a time
-            fast = self.head
+        #Move fast node, two nodes at a time
+        fast = self.head
+        
+        #Iterate till the fast node
+        # reaches the end/none
+        while fast!=None:
             
-            #Iterate till the fast node
-            # reaches the end/none
-            while fast!=None:
-                
-                #Next node would be empty
-                # if total length is odd
-                if fast.next == None:
-                    return slow
-                fast = fast.next
-                
-                #Next node would be empty
-                # if total length is even
-                if fast.next == None:
-                    return slow.next
-                fast = fast.next
-                
-                #Iterate one node
-                slow = slow.next
+            #Next node would be empty
+            # if total length is odd
+            if fast.next == None:
+                return slow
+            fast = fast.next
+            
+            #Next node would be empty
+            # if total length is even
+            if fast.next == None:
+                return slow.next
+            fast = fast.next
+            
+            #Iterate one node
+            slow = slow.next
 
-        ##################################################
-        #Verify if the linked list is looped
-        ################################################## 
-        def has_loop(self):
-            #Move slow node, one node at a time
-            slow = self.head
+    ##################################################
+    #Verify if the linked list is looped
+    ################################################## 
+    def has_loop(self):
+        #Move slow node, one node at a time
+        slow = self.head
 
-            #Move fast node, two nodes at a time
-            fast = self.head
-            
-            if self.length==1:
-                return False
-            
-            while fast!=None:
-                if fast==None:
-                    return False
-                    
-                if fast.next != None:
-                    fast = fast.next.next
-                else:
-                    fast = None
-                slow = slow.next
-                
-                if fast == slow:
-                    return True
-            
+        #Move fast node, two nodes at a time
+        fast = self.head
+        
+        if self.length==1:
             return False
+        
+        while fast!=None:
+            if fast==None:
+                return False
+                
+            if fast.next != None:
+                fast = fast.next.next
+            else:
+                fast = None
+            slow = slow.next
+            
+            if fast == slow:
+                return True
+        
+        return False
             
 
 
