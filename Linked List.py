@@ -271,6 +271,34 @@ class LinkedList:
                 
                 #Iterate one node
                 slow = slow.next
+
+        ##################################################
+        #Verify if the linked list is looped
+        ################################################## 
+        def has_loop(self):
+            #Move slow node, one node at a time
+            slow = self.head
+
+            #Move fast node, two nodes at a time
+            fast = self.head
+            
+            if self.length==1:
+                return False
+            
+            while fast!=None:
+                if fast==None:
+                    return False
+                    
+                if fast.next != None:
+                    fast = fast.next.next
+                else:
+                    fast = None
+                slow = slow.next
+                
+                if fast == slow:
+                    return True
+            
+            return False
             
 
 
