@@ -61,14 +61,16 @@ class LinkedList:
         
         #Temporarily assign head value to temp and pre
         # Temp is the last value to be popped, 
-        # and pre is the value right before it
+        # and pre is the value right before it (will become the new tail)
         temp = self.head
         pre = self.head
 
         #Traverse through list to reach the last value
         # as long as there is a value after temp
         while(temp.next):
+            #Save value of temp to pre
             pre = temp
+            #Move temp to the next Node
             temp = temp.next
 
         #Point to the second last value and remove
@@ -78,10 +80,12 @@ class LinkedList:
         self.length -= 1
 
         #if the popped item was the last in the list
+        # i.e. size of the list was 1 (one)
         if self.length == 0:
             self.head = None
             self.tail = None
 
+        #Return the value that was popped/removed
         return temp
 
     ##################################################
@@ -93,7 +97,8 @@ class LinkedList:
             self.head = new_node
             self.tail = new_node
         else:
-            #Set the current head value to be the next value of the new head
+            #Set the current head value to be 
+            # the next value of the new head
             new_node.next = self.head
             self.head = new_node
         self.length += 1
@@ -306,7 +311,54 @@ class LinkedList:
 # End of Linked list class
 ###############################
 
+# ###############################################
+# ###############################################
+# ###############################################
 
+###############################
+#Find the K-th node from the end 
+# of a linked list
+###############################
+
+def find_kth_from_end(ll, k):
+    
+    #Slow and Head have the same start point
+    slow = ll.head
+    fast = ll.head
+    
+    #Move the fast node "k" number of times ahead
+    for _ in range(k):
+        
+        #if fast is None already, return None.
+        #Since we didn't parse 'k' times for it to be the end
+        if fast is None:
+            return None
+        
+        #Else move to the next
+        fast = fast.next
+        
+    #Move the fast and slow nodes
+    # One node at a time, till fast hits the end, i.e. None
+    while fast is not None:
+        slow = slow.next
+        fast = fast.next
+    
+    #Return result since slow-node is 'k' times behind fast-node
+    return slow
+    
+
+# Testing results of function
+my_linked_list = LinkedList(1)
+my_linked_list.append(2)
+my_linked_list.append(3)
+my_linked_list.append(4)
+my_linked_list.append(5)
+
+
+k = 2
+result = find_kth_from_end(my_linked_list, k)
+
+print(result.value)  # Output: 4
 
 # ###############################################
 # ###############################################
@@ -315,16 +367,16 @@ class LinkedList:
 ###############################
 #Reverse a Linked list testing
 ###############################
-my_linked_list = LinkedList(1)
-my_linked_list.append(2)
-my_linked_list.append(3)
-my_linked_list.append(4)
+# my_linked_list = LinkedList(1)
+# my_linked_list.append(2)
+# my_linked_list.append(3)
+# my_linked_list.append(4)
 
-my_linked_list.print_list()
+# my_linked_list.print_list()
 
-my_linked_list.reverse()
-print("\n")
-my_linked_list.print_list()
+# my_linked_list.reverse()
+# print("\n")
+# my_linked_list.print_list()
 
 
 # ###############################
