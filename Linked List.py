@@ -108,14 +108,23 @@ class LinkedList:
     #Pop from first position in a List
     ##################################################
     def pop_first(self):
+
+        #Return none if the list is empty
         if self.length == 0:
             return None
         
+        #Swap head value with the next value, 
+        # and remove the pointer to the next value
         temp = self.head
         self.head = self.head.next
         temp.next = None
+
+        #Reduce length of list by 1
         self.length -= 1
 
+        #Just mark tail as None if list ends up 
+        # emtpy, since Head would already be set
+        # to None in the swap step
         if self.length == 0:
             self.tail = None
 
@@ -125,21 +134,31 @@ class LinkedList:
     #Get - Return node at specified index
     ################################################## 
     def get(self,index):
+
+        #Retrun nothing if index is out of range
         if index<0 or index >= self.length:
             return None
+        
+        #Set temp to the head value first
         temp = self.head
+
+        #Traverse nodes 'index' number of times
         for _ in range(index):
             temp = temp.next
+
         return temp
     
     ##################################################
     #Set - Edit value in a LinkedList
     ################################################## 
     def set_value(self, index, value):
+
         temp = self.get(index)
+
         if temp:
             temp.value = value
             return True
+        
         return False
 
     ##################################################
@@ -147,29 +166,36 @@ class LinkedList:
     # (prepend and append included)
     ################################################## 
     def insert(self, index, value):
+        
+        #Case I
         #if index value given is out of range of the list itself
         if index<0 or index >= self.length:
             #returns False because it is the
             # opposite of returning True
             return False
         
+        #Case II
         #if value to be inserted at start, just prepend
         if index==0:
             return self.prepend(value)
         
+        #Case III
         #if value to be inserted at the end, just append
         if index == self.length:
             return self.append(value)
         
+        #Case IV
+        #Start inserting value in the middle of the list
+        
         #Insert value in the middle of a list
         new_node = Node(value)
         
-        #set temp as the value right before the
-        #position you want to insert value in
+        #set temp by copying the value right before the
+        # position you want to insert value in
         temp = self.get(index-1)
-
+        
         #Point new value's 'next' pointer to the value
-        # that the preceding value pointed to
+        # that the preceding/earlier present value pointed to
         new_node.next = temp.next
 
         #Point the preceding value's next pointer
@@ -178,6 +204,7 @@ class LinkedList:
         
         #increment length of list value
         self.length += 1
+
         return True
 
     ##################################################
@@ -311,9 +338,9 @@ class LinkedList:
 # End of Linked list class
 ###############################
 
-# ###############################################
-# ###############################################
-# ###############################################
+################################################
+################################################
+################################################
 
 ###############################
 #Find the K-th node from the end 
