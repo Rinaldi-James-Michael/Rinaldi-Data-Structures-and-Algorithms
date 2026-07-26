@@ -279,7 +279,7 @@ class DoublyLinkedList:
             return self.prepend(value)
 
         #Use existing append function for
-        # last node, which is same as length
+        # last node, which is same index as length
         if index == self.length:
             return self.append(value)
 
@@ -323,6 +323,52 @@ class DoublyLinkedList:
         self.length += 1
 
         return True
+
+
+    ################################
+    #Remove value based on index
+    # and update pointers
+    ################################
+    def remove(self,index):
+
+        #If provided index is out of bounds
+        if index<0 or index>self.length:
+            return False
+
+        #Use existing pop first function for
+        # index - 0
+        if index == 0:
+            self.popFirst()
+
+        #Use existing pop function for
+        # last node, which is same index as length
+        if index == self.length:
+            self.pop()
+
+        #---------------------------------------#
+        #Get node from index
+        temp = self.get(index)
+
+        #Update the 'after'/next node's
+        # 'prev' pointer
+        (temp.next).prev = temp.prev
+
+        #Update the 'before'/previous node's
+        # 'next' pointer
+        (temp.prev).next = temp.next
+
+        #Remove pointers from temp node
+        temp.next = None
+        temp.prev = None
+        #---------------------------------------#
+
+        #Reduce length of list by 1
+        self.length -= 1
+
+        #Return the removed node
+        return temp
+
+
 
 
     
@@ -453,6 +499,29 @@ print("Insert value at provided 'index'.\n")
 #Insert value at fifth position as '5'
 myDoublyLinkedList.insert(5,5)
 
+myDoublyLinkedList.print_list()
+
+print("\n#---------------#\n")
+
+
+##################################
+#VIII. Remove Node
+##################################
+print("Remove value at provided 'index'.\n")
+
+#Insert value at fifth position as '5', 
+# for testing
+myDoublyLinkedList.insert(4,5)
+
+#View list
+myDoublyLinkedList.print_list()
+
+print("\n*****\n")
+
+#Remove inserted value
+myDoublyLinkedList.remove(5)
+
+#View list
 myDoublyLinkedList.print_list()
 
 print("\n#---------------#\n")
