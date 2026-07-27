@@ -519,7 +519,7 @@ myDoublyLinkedList.print_list()
 print("\n*****\n")
 
 #Remove inserted value
-myDoublyLinkedList.remove(5)
+removed_value = (myDoublyLinkedList.remove(5)).value
 
 #View list
 myDoublyLinkedList.print_list()
