@@ -36,4 +36,39 @@ class Stack:
     ###############################
     #Print the stack
     ###############################
+    def printStack(self):
 
+        #Create temporary variable
+        # that starts from the top
+        temp = self.top
+
+        #Loop through stack till empty
+        while temp is not None:
+            print(temp.value)
+            temp = temp.next
+
+
+###################################
+# End of Doubly Linked list class
+###################################
+
+
+
+
+
+################################################
+################################################
+################################################
+
+
+
+
+
+##################################
+#I. Create list, add nodes and print
+##################################
+
+#Create stack with one node
+myStack = Stack(4)
+
+myStack.printStack()
