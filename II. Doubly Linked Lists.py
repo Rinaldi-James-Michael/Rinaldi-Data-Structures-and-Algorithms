@@ -369,8 +369,6 @@ class DoublyLinkedList:
         return temp
 
 
-
-
     
 ###################################
 # End of Doubly Linked list class
