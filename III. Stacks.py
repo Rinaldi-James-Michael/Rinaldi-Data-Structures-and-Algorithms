@@ -104,7 +104,7 @@ class Stack:
 
 
 ###################################
-# End of Doubly Linked list class
+# End of Stacks class
 ###################################
 
 
