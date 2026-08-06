@@ -4,8 +4,11 @@ Solution from NeetCode
 https://www.youtube.com/watch?v=KLlXCFG5TnA&list=PLot-Xpze53ldVwtstag2TL4HQhAnC8ATf
 """
 
+#Function to return values as an array of integers in list data type
+# Parameters: list of integers (nums), integer (target)
 def twoSum(nums: list[int], target: int) -> list[int]:
-    #empty HashMap/Dictionary | val : index
+
+    #Create     empty HashMap/Dictionary | val : index
     prevMap = {}
 
     #Loop through all values from the List
@@ -16,14 +19,15 @@ def twoSum(nums: list[int], target: int) -> list[int]:
         diff = target - n
 
         #Check if the difference is already in the Map we created
-        #Map will be empty in the first iteration
-        #If it matches, return the positions of both values
+        # Map will be empty in the first iteration
+        # If it matches, return the positions of both values
         if diff in prevMap:
             return [prevMap[diff], i]
         
-        #If nothing, store the value and it's position in.. 
-        #..this function's hashmap
+        #If nothing, store the value (n) and 
+        # it's position (i) in this function's hashmap
         prevMap[n] = i
+
     return "No match"
 
 

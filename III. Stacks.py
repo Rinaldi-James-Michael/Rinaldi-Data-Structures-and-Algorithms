@@ -17,7 +17,7 @@ class Node:
 class Stack:
 
     ###############################
-    #Initialize/Construct the List
+    #Initialize/Construct the Stack
     ###############################
     def __init__(self,value):
 

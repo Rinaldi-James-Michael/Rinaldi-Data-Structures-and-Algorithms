@@ -17,7 +17,7 @@ class Node:
 class Queue:
 
     ###############################
-    #Initialize/Construct the List
+    #Initialize/Construct the Queue
     ###############################
     def __init__(self,value):
         newNode = Node(value)
